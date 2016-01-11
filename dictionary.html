@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>wat</title>
+  </head>
+  <body>
+    <script>
+      function gp(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+      window.location.assign("http://dictionary.reference.com/browse/" + gp(i'))
+    </script>
+  </body>
+</html>

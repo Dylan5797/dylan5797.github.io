@@ -1,0 +1,288 @@
+/* Copyright (c) Dylan Beswick 2016 */
+/* pysd: A Python, Ruby and ActionScript based language that compiles to scratch: https://scratch.mit.edu */
+
+
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
+
+/* begin basic object styles */
+
+body {
+	margin: 0;
+}
+
+div, table {
+	outline: none
+}
+
+table {
+	border-collapse: collapse;
+}
+
+.content {
+	padding: 15px;
+	padding-bottom: 5px;
+}
+
+/* end basic object styles */
+
+
+
+/* begin reusable styles */
+
+.text-editor {
+    font-family: "Source Code Pro", "sans-serif";
+    border: 2px solid #aaa;
+    outline: none;
+    overflow-y: auto;
+}
+
+.text-editor::selection {
+    background: #0EEE00;
+}
+
+.text-editor div::selection {
+    background: #0EEE00;
+}
+
+.text-editor-full {
+    height: 100%
+}
+
+.content-column  {
+	height: 100%
+}
+
+/* end reusable styles */
+
+
+
+/* begin wrapper */
+
+.editor {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background-color: #eeeeee
+}
+
+/* end wrapper */
+
+
+
+/* begin topbar */
+
+.topbar {
+	display: inline-block;
+	width: 100%;
+	background-color: #25aff4;
+}
+
+.topbar div {
+    display: inline-flex;
+}
+
+.logo {
+    font-weight: normal;
+    font-size: 45px;
+    font-family: "Source Code Pro", "sans-serif";
+    margin-top: -8px;
+    margin-bottom: 0;
+    padding-left: 15px;
+    display: inline-block;
+}
+
+.logo::selection {
+	color: black;
+}
+
+.context-menubar {
+    margin-right: 40px;
+    float: right;
+}
+
+
+.context-menu {
+	display: inline-block;
+	text-decoration: none;
+	cursor: default;
+	background-color: #25aff4;
+    font-family: "Roboto Slab", "sans-serif";
+    font-size: 20px;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 9px;
+	padding-bottom: 12px;
+}
+
+.context-menu:hover {
+	background-color: #259fe4
+}
+
+.context-menu-popup {
+	position: absolute;
+    width: 215px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: 2px solid #0099FF;
+    right: 40px;
+    min-height: 40px;
+    background-color: #25AFF4;
+}
+
+.context-menu-item {
+	min-height: 30px;
+    font-family: "Roboto Slab", sans-serif;
+    width: calc(100% - 25px);
+    padding: 5px;
+    padding-left: 20px;
+    color: white;
+    font-size: 20px;
+	cursor: default;
+}
+
+.context-menu-item-last {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.context-menu-item:hover {
+	background-color: #1F98D5;
+}
+
+.context-menu-item-divider {
+    width: 100%;
+    border-top: 2px solid #0099FF;
+}
+
+.context-menu-item-text {
+	min-height: 30px;
+    font-family: "Roboto Slab", sans-serif;
+    width: calc(100% - 25px);
+    padding: 5px;
+    padding-left: 20px;
+    color: white;
+    font-size: 20px;
+    background-color: #009EFF;
+	cursor: default;
+}
+
+/* end topbar */
+
+
+
+/* begin popups */
+
+.modal-backdrop {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(160, 160, 180, 0.65);
+}
+
+.modal-popups {
+	z-index: 200;
+    min-height: 10px;
+    display: table;
+    top: 55px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 450px;
+}
+
+.popup {
+	z-index: 200;
+	font-family: "Roboto Slab", "sans-serif";
+    min-height: 20px;
+    border-radius: 10px;
+    padding: 10px;
+	margin-bottom: 15px
+}
+
+.popup-ok {
+    background-color: #77FF77;
+}
+
+.popup-error {
+    background-color: #FF7777;
+}
+
+.popup-warn {
+	background-color: #FFFF77;
+}
+
+/* end popups */
+
+
+
+/* begin status bar */
+
+.status-bar {
+    font-size: 20px;
+    font-family: "Roboto Slab", sans-serif;
+    height: 25px;
+    margin: 15px;
+    border: 2px solid #aaa;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* end status bar */
+
+
+/* begin line numbering */
+
+.line-number-container {
+    min-width: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: #25aff4;
+	text-align: center;	border-right: 4px solid rgba(0,0,0,0)
+}
+
+.code-content, .code-content div {
+	margin: 0px;
+    border: 0px;
+    outline: none;
+    word-wrap: break-word;
+	-moz-tab-size: 128;
+	-o-tab-size: 128;
+	tab-size: 128;
+}
+
+.code-content span {
+	-moz-tab-size: 128;
+	-o-tab-size: 128;
+	tab-size: 128;
+}
+
+.code-content br {
+	display: none; 
+}
+
+.line-numbers tr div {
+	min-height: 20px
+}
+/* end line numbering */
+
+
+
+
+/* begin overwrite styles */
+
+.hidden {
+	display: none !important;
+}
+
+.no-select {
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none; 
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}

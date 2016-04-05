@@ -123,7 +123,7 @@ pysd.CALLBACKS.on_load = function() {
 	pysd.EDITOR_DATA.alt_down = false
 	
 	pysd.EDITOR.set_status_text("Downloading block specs. Please Wait.");
-	pysd.REQUESTS.GET("http://dx.dylan4.com/projects/pysd/static/specs/specs.pysd.json", pysd.CALLBACKS.specs_ready_callback, pysd.CALLBACKS.specs_request_error);
+	pysd.REQUESTS.GET("http://ipex.pw/projects/pysd/static/specs/specs.pysd.json", pysd.CALLBACKS.specs_ready_callback, pysd.CALLBACKS.specs_request_error);
 	
 	var text_editors = document.getElementsByClassName('text-editor');
 	for (var x = 0; x < text_editors.length; x++) {

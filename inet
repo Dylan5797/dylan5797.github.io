@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Dylan4</title>
+  </head>
+  <body>
+    <p>inet</p>
+    <p>ipex.pw © Dylan Beswick 2016</p>
+    <script>
+      window.location.replace("http://www.speedtest.net/my-result/5541142632")
+    </script>
+  </body>
+</html>
